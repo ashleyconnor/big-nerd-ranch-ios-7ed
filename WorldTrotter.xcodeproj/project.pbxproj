@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47694EAC245E1511006467BB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47694EAB245E1511006467BB /* MapViewController.swift */; };
 		478FC5F7245B454400624875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC5F6245B454400624875 /* AppDelegate.swift */; };
 		478FC5F9245B454400624875 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC5F8245B454400624875 /* SceneDelegate.swift */; };
-		478FC5FB245B454400624875 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC5FA245B454400624875 /* ViewController.swift */; };
+		478FC5FB245B454400624875 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC5FA245B454400624875 /* ConversionViewController.swift */; };
 		478FC5FE245B454400624875 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 478FC5FC245B454400624875 /* Main.storyboard */; };
 		478FC600245B454800624875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 478FC5FF245B454800624875 /* Assets.xcassets */; };
 		478FC60E245B454800624875 /* WorldTrotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC60D245B454800624875 /* WorldTrotterTests.swift */; };
 		478FC619245B454800624875 /* WorldTrotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478FC618245B454800624875 /* WorldTrotterUITests.swift */; };
+		47E4CF69245E18F200C11C6B /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E4CF68245E18F200C11C6B /* QuizViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		47694EAB245E1511006467BB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		478FC5F3245B454400624875 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478FC5F6245B454400624875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478FC5F8245B454400624875 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		478FC5FA245B454400624875 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		478FC5FA245B454400624875 /* ConversionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionViewController.swift; sourceTree = "<group>"; };
 		478FC5FD245B454400624875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		478FC5FF245B454800624875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		478FC604245B454800624875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 		478FC614245B454800624875 /* WorldTrotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldTrotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		478FC618245B454800624875 /* WorldTrotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTrotterUITests.swift; sourceTree = "<group>"; };
 		478FC61A245B454800624875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47E4CF68245E18F200C11C6B /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +101,12 @@
 		478FC5F5245B454400624875 /* WorldTrotter */ = {
 			isa = PBXGroup;
 			children = (
+				47E4CF68245E18F200C11C6B /* QuizViewController.swift */,
 				478FC5F6245B454400624875 /* AppDelegate.swift */,
 				478FC5F8245B454400624875 /* SceneDelegate.swift */,
-				478FC5FA245B454400624875 /* ViewController.swift */,
+				478FC5FA245B454400624875 /* ConversionViewController.swift */,
 				478FC5FC245B454400624875 /* Main.storyboard */,
+				47694EAB245E1511006467BB /* MapViewController.swift */,
 				478FC5FF245B454800624875 /* Assets.xcassets */,
 				478FC604245B454800624875 /* Info.plist */,
 			);
@@ -255,9 +261,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				478FC5FB245B454400624875 /* ViewController.swift in Sources */,
+				47E4CF69245E18F200C11C6B /* QuizViewController.swift in Sources */,
+				478FC5FB245B454400624875 /* ConversionViewController.swift in Sources */,
 				478FC5F7245B454400624875 /* AppDelegate.swift in Sources */,
 				478FC5F9245B454400624875 /* SceneDelegate.swift in Sources */,
+				47694EAC245E1511006467BB /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

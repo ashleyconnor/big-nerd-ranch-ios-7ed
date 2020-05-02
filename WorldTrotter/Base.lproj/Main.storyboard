@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kLf-wB-E0b">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,7 +18,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="212" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgb-mh-iW0">
                                 <rect key="frame" x="151.5" y="52" width="111" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1g-49-Zbd">
@@ -114,10 +114,108 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="6Bu-S8-4iY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
+            <point key="canvasLocation" x="816" y="852"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="s4c-QJ-Y7H">
+            <objects>
+                <viewController id="Xwn-o2-SnL" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="CmV-Ay-L4D">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="9eO-Da-Web"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPQ-35-Vc1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726.0869565217392" y="131.91964285714286"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="CrC-3B-oiy">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kLf-wB-E0b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zXd-q2-xWC">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="xch-Hw-I3Y"/>
+                        <segue destination="Xwn-o2-SnL" kind="relationship" relationship="viewControllers" id="Qfk-io-7ga"/>
+                        <segue destination="AQO-tX-B3I" kind="relationship" relationship="viewControllers" id="WOR-uh-iZe"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xD-kM-SOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="131.91964285714286"/>
+        </scene>
+        <!--Quiz-->
+        <scene sceneID="OwH-2q-5Ji">
+            <objects>
+                <viewController id="AQO-tX-B3I" customClass="QuizViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SLQ-Um-BOA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ3-Fx-lKb">
+                                <rect key="frame" x="186" y="60" width="42" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJ2-gl-GVo">
+                                <rect key="frame" x="186" y="396" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sqi-TM-hXH">
+                                <rect key="frame" x="158" y="88" width="98" height="30"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="showNextQuestion:" destination="AQO-tX-B3I" eventType="touchUpInside" id="N5m-BY-Mnr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vzw-sB-I8F">
+                                <rect key="frame" x="160.5" y="425" width="93" height="30"/>
+                                <state key="normal" title="Show Answer"/>
+                                <connections>
+                                    <action selector="showAnswer:" destination="AQO-tX-B3I" eventType="touchUpInside" id="mlD-IG-n5X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Sqi-TM-hXH" firstAttribute="top" secondItem="cQ3-Fx-lKb" secondAttribute="bottom" constant="8" id="19m-0p-Vzk"/>
+                            <constraint firstItem="cQ3-Fx-lKb" firstAttribute="centerX" secondItem="SLQ-Um-BOA" secondAttribute="centerX" id="Ew2-Wb-yG1"/>
+                            <constraint firstItem="Vzw-sB-I8F" firstAttribute="top" secondItem="xJ2-gl-GVo" secondAttribute="bottom" constant="8" id="WVV-hC-big"/>
+                            <constraint firstItem="cQ3-Fx-lKb" firstAttribute="top" secondItem="amB-08-wrT" secondAttribute="top" constant="16" id="deF-rD-ySI"/>
+                            <constraint firstItem="Vzw-sB-I8F" firstAttribute="centerX" secondItem="Sqi-TM-hXH" secondAttribute="centerX" id="gAy-7Y-dTb"/>
+                            <constraint firstItem="cQ3-Fx-lKb" firstAttribute="centerX" secondItem="Sqi-TM-hXH" secondAttribute="centerX" id="gxP-G3-NO2"/>
+                            <constraint firstItem="xJ2-gl-GVo" firstAttribute="centerX" secondItem="Sqi-TM-hXH" secondAttribute="centerX" id="nch-My-gfs"/>
+                            <constraint firstItem="xJ2-gl-GVo" firstAttribute="top" secondItem="Sqi-TM-hXH" secondAttribute="bottom" constant="278" id="tDJ-km-xs2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="amB-08-wrT"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Quiz" image="questionmark.square" catalog="system" id="9Ck-5Y-KGr"/>
+                    <connections>
+                        <outlet property="answerLabel" destination="xJ2-gl-GVo" id="gla-mY-f75"/>
+                        <outlet property="questionLabel" destination="cQ3-Fx-lKb" id="Gf9-fX-zEE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TGi-Qf-gy5" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1726" y="852"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ConvertIcon" width="48.5" height="32.5"/>
+        <image name="MapIcon" width="48.5" height="32.5"/>
+        <image name="questionmark.square" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
