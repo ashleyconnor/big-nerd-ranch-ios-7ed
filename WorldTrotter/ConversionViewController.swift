@@ -12,16 +12,6 @@ class ConversionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let gradientLayer = CAGradientLayer()
-//
-//        gradientLayer.colors = [UIColor.red.cgColor,
-//                                UIColor.yellow.cgColor,
-//                                UIColor.green.cgColor,
-//                                UIColor.blue.cgColor]
-//
-//        gradientLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1)
-//        gradientLayer.frame = view.bounds
-//        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
