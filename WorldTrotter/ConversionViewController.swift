@@ -8,64 +8,99 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController {
-    
-    var degreesFahrenheit: UILabel!
-    var fahrenheitDescription: UILabel!
-    var isReallyLabel: UILabel!
-    var degreesCelsius: UILabel!
-    var celciusDescription: UILabel!
-    
-    override func loadView() {
-        view = UIView()
-        
-        degreesFahrenheit = UILabel()
-        degreesFahrenheit.text = "212"
-        
-        fahrenheitDescription = UILabel()
-        fahrenheitDescription.text = "degrees fahrenheit"
-        
-        isReallyLabel = UILabel()
-        isReallyLabel.text = "Is really"
-        
-        degreesCelsius = UILabel()
-        degreesCelsius.text = "100"
-        
-        celciusDescription = UILabel()
-        celciusDescription.text = "degrees celcius"
-        
-        let labels = [degreesFahrenheit, fahrenheitDescription, isReallyLabel, degreesCelsius, celciusDescription]
-        
-        for label in labels {
-            label!.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(label!)
-        }
-        
-        let margins = view.layoutMarginsGuide
-        
-        degreesFahrenheit.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        fahrenheitDescription.topAnchor.constraint(equalTo: degreesFahrenheit.bottomAnchor, constant: 100).isActive = true
-        isReallyLabel.topAnchor.constraint(equalTo: fahrenheitDescription.bottomAnchor, constant: 100).isActive = true
-        degreesCelsius.topAnchor.constraint(equalTo: isReallyLabel.bottomAnchor, constant: 100).isActive = true
-        celciusDescription.topAnchor.constraint(equalTo: degreesCelsius.bottomAnchor, constant: 100).isActive = true
-        
-        for label in labels {
-            label?.textAlignment = .center
-            label?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            label?.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-            label?.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+class ConversionViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet var celsiusLabel: UILabel!
+    @IBOutlet var textField: UITextField!
+
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
+
+
+    var fahrenheitValue: Measurement<UnitTemperature>? {
+        didSet {
+            updateCelsiusLabel()
         }
     }
-    
+
+    var celsiusValue: Measurement<UnitTemperature>? {
+        if let fahrenheitValue = fahrenheitValue {
+            return fahrenheitValue.converted(to: .celsius)
+        } else {
+            return nil
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateCelsiusLabel()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         self.view.backgroundColor = getRandomColor()
     }
-    
+
+    @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField) {
+        if let text = textField.text, let value = Double(text) {
+            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        } else {
+            fahrenheitValue = nil
+        }
+    }
+
+    func updateCelsiusLabel() {
+        if let celsiusValue = celsiusValue {
+            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
+        } else {
+            celsiusLabel.text = "???"
+        }
+    }
+
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textField.resignFirstResponder()
+    }
+
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+
+        if string.isEmpty {
+            return true
+        }
+
+        var allowedCharacterSet = CharacterSet.decimalDigits
+            allowedCharacterSet.formUnion(CharacterSet.controlCharacters)
+            allowedCharacterSet.insert(charactersIn: ".")
+
+        let containsDisallowedCharacter =
+            string.rangeOfCharacter(from: allowedCharacterSet)
+
+        print("Contains disallowed character \(String(describing: containsDisallowedCharacter))")
+        print("Current text: \(String(describing: textField.text))")
+        print("Replacement text: \(string)")
+
+        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+        let replacementTextHasDecimalSeparator = string.range(of: ".")
+
+        if (existingTextHasDecimalSeparator != nil &&
+            replacementTextHasDecimalSeparator != nil) ||
+            containsDisallowedCharacter == nil {
+            return false
+        }
+
+        return true
+    }
+
     func getRandomColor() -> UIColor {
         let red: CGFloat = CGFloat(drand48())
         let green: CGFloat = CGFloat(drand48())
         let blue: CGFloat = CGFloat(drand48())
-        
+
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }
